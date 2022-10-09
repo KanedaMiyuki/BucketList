@@ -1,0 +1,51 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+@media(max-width: 768px){
+    #welcome_text{
+        font-size: 19px;
+    }
+    #check_inquiries{
+        font-size: xx-small;
+    }
+    iframe{
+        width: 80%;
+        height: 200px;
+    }
+
+}
+
+@media(max-width: 576px){
+    #welcome_text{
+        font-size: small;
+    }
+
+    #welcome_p{
+        font-size: x-small;
+    }
+
+    .tags {
+        font-size: xx-small;
+    }
+    iframe{
+        width: 50%;
+    }
+}
+
+
+
+.tags {
+    font-size: x-small;
+}
+
+#cardImage {
+    width: 100%;
+    height: 75%;
+}
