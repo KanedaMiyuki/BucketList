@@ -13,6 +13,6 @@
     <p>{{$inputs['details']}}</p>
     ーーーー
     <p>このメールに返信されましても、お答えする事はできませんので、<br>Contact usよりご連絡ください。</p>
-    <p><a href="#"><strong>Bucket List</strong></a></p>
+    <p><a href="https://bucket-list-test.com/"><strong>Bucket List</strong></a></p>
 </body>
 </html>
