@@ -90,7 +90,7 @@ class UserController extends Controller
             return view('Users.ban');
         }
         $request->validate([
-            'name' => ['required', 'min:3', 'max:50', Rule::unique('users')->ignore(Auth::id())],
+            'name' => ['required', 'min:1', 'max:50', Rule::unique('users')->ignore(Auth::id())],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
             'privacy' => ['required'],
         ]);
