@@ -7,8 +7,8 @@
     <h1>My Bucket List</h1>
     <table class="table" id="index_table">
         <t-head>
-            <tr>
-                <th>#</th>
+            <tr class="text-center">
+                <th><i class="fas fa-clipboard"></i></th>
                 <th>title</th>
                 <th>detail</th>
                 <th>Added at</th>
@@ -18,8 +18,8 @@
 
         @unless (count($listings) == 0)
         @foreach ($listings as $listing)
-        <tr>
-            <td><a href="{{ route('show', $listing->id) }}">{{ $listing->id }}</a></td>
+        <tr class="text-center">
+            <td><a href="{{ route('show', $listing->id) }}" class="btn btn-dark btn-sm">See</a></td>
 
             <td>{{ $listing->title }}</td>
             <td>{{ $listing->description }}</td>
