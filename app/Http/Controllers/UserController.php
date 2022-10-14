@@ -83,25 +83,52 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user, Request $request)
+    public function update(Request $request, User $user)
     {
         $user = Auth::user();
         if($user->status == 1){
             return view('Users.ban');
         }
+
         $request->validate([
-            'name' => ['required', 'min:1', 'max:50', Rule::unique('users')->ignore(Auth::id())],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
-            'privacy' => ['required'],
+            'name' => 'required|max:50',
+            'email' => 'required|email|max:255', Rule::unique('users')->ignore(Auth::id()),
         ]);
-        $user = Auth::user();
+
         $user->name = $request->name;
         $user->email = $request->email;
+
+        $user->save();
+
+        return redirect()->route('users.index')
+            ->with('message', 'Your profile Updated Successfully.');
+    }
+
+    public function changePrivacy(){
+        $user = Auth::user();
+        if($user->status == 1){
+            return view('user.ban');
+        }
+        return view('user.privacy')
+            ->with('user', $user);
+    }
+
+    public function updatePrivacy(Request $request, User $user){
+        $user = Auth::user();
+        if($user->status == 1){
+            return view('Users.ban');
+        }
+
+        $request->validate([
+            'privacy' => 'required',
+        ]);
+
         $user->privacy = $request->privacy;
 
         $user->save();
+
         return redirect()->route('users.index')
-            ->with('message', 'Your profile Updated Successfully.');
+            ->with('message', 'Your privacy changed Successfully.');
     }
 
     public function changePassword(){

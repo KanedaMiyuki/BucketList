@@ -15,6 +15,7 @@
             <p class="privacy">あなたしか閲覧できないように設定できます</p>
             <h4>{{ $user->privacy }}</h4>
             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark">Edit</a>
+            <a href="{{ route('users.changePrivacy', $user->id) }}" class="btn btn-dark text-danger">Privacy</a>
             <a href="{{ route('users.changePassword') }}" class="btn btn-warning">Change Password</a>
         </div>
     </div>

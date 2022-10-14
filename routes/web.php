@@ -72,11 +72,15 @@ Route::group(['middleware' => 'auth'], function(){
         //Edit
         Route::get('/edit_profile/{id}', [UserController::class, 'edit'])->where('id', '[0-9]+')->name('edit');
         //Update
-        Route::put('/update_profile', [UserController::class, 'update'])->name('update');
+        Route::post('/update_profile/{id}', [UserController::class, 'update'])->name('update');
         //Move to Change Password Page
         Route::get('/change_password', [UserController::class, 'changePassword'])->name('changePassword');
-        //Change Password
+        //Update Password
         Route::put('/update_password', [UserController::class, 'updatePassword'])->name('updatePassword');
+        //Move to Change Privacy Page
+        Route::get('/change_privacy', [UserController::class, 'changePrivacy'])->name('changePrivacy');
+        //Update Privacy
+        Route::post('/update_privacy', [UserController::class, 'updatePrivacy'])->name('updatePrivacy');
         //logout
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     });
